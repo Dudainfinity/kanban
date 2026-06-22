@@ -1,0 +1,38 @@
+:root {
+  --bg: #f1f3f9;
+  --col: #e9edf5;
+  --card: #ffffff;
+  --ink: #1f2638;
+  --muted: #6b7390;
+  --line: #d9deeb;
+  --brand: #6d28d9;
+  --brand2: #2563eb;
+  --shadow: 0 1px 2px rgba(31,38,56,.12), 0 2px 8px rgba(31,38,56,.06);
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); }
+
+.topbar { display: flex; align-items: baseline; gap: 16px; padding: 16px 28px; background: #fff; border-bottom: 1px solid var(--line); }
+.brand { font-size: 1.25rem; font-weight: 800; color: var(--ink); text-decoration: none; }
+.brand span { background: linear-gradient(90deg, var(--brand), var(--brand2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.hint { color: var(--muted); font-size: .88rem; }
+
+.board { display: flex; gap: 18px; padding: 24px 28px; align-items: flex-start; overflow-x: auto; min-height: calc(100vh - 64px); }
+.column { background: var(--col); border-radius: 14px; width: 300px; flex: 0 0 300px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.column-head { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px; }
+.column-head h2 { margin: 0; font-size: .95rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.count { background: #fff; color: var(--muted); border-radius: 999px; padding: 1px 9px; font-size: .8rem; font-weight: 700; }
+
+.cards { display: flex; flex-direction: column; gap: 10px; min-height: 24px; }
+.card { background: var(--card); border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow); cursor: grab; border: 1px solid transparent; }
+.card:hover { border-color: var(--brand); }
+.card:active { cursor: grabbing; }
+.card-title { margin: 0; font-weight: 600; font-size: .95rem; }
+.card-desc { margin: 6px 0 0; font-size: .85rem; color: var(--muted); }
+.card-ghost { opacity: .4; }
+
+.add-card input { width: 100%; padding: 10px 12px; border: 1px dashed var(--line); border-radius: 10px; background: transparent; font-size: .9rem; color: var(--ink); }
+.add-card input:focus { outline: none; border-color: var(--brand); background: #fff; }
+
+.boards-index { padding: 40px; }
+.boards-index a { color: var(--brand); }

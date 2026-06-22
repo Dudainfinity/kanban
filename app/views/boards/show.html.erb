@@ -1,0 +1,27 @@
+<% content_for :title, @board.name %>
+
+<%# Assina o canal do board: qualquer broadcast chega aqui ao vivo %>
+<%= turbo_stream_from @board %>
+
+<div class="board">
+  <% @board.columns.each do |column| %>
+    <section class="column">
+      <header class="column-head">
+        <h2><%= column.name %></h2>
+        <span class="count"><%= column.cards.size %></span>
+      </header>
+
+      <div class="cards"
+           id="<%= dom_id(column, :cards) %>"
+           data-controller="sortable"
+           data-column-id="<%= column.id %>">
+        <%= render column.cards, as: :card %>
+      </div>
+
+      <%= form_with model: Card.new, url: cards_path, class: "add-card" do |f| %>
+        <%= f.hidden_field :column_id, value: column.id %>
+        <%= f.text_field :title, placeholder: "+ Novo cartão", autocomplete: "off", required: true %>
+      <% end %>
+    </section>
+  <% end %>
+</div>

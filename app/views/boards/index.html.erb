@@ -1,0 +1,12 @@
+<% content_for :title, "Boards" %>
+<div class="boards-index">
+  <h1>Quadros</h1>
+  <ul>
+    <% @boards.each do |board| %>
+      <li><%= link_to board.name, board %></li>
+    <% end %>
+  </ul>
+  <% if @boards.empty? %>
+    <p>Nenhum quadro. Rode <code>bin/rails db:seed</code>.</p>
+  <% end %>
+</div>

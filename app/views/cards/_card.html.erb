@@ -1,0 +1,6 @@
+<div class="card" id="<%= dom_id(card) %>" data-card-id="<%= card.id %>">
+  <p class="card-title"><%= card.title %></p>
+  <% if card.description.present? %>
+    <p class="card-desc"><%= card.description %></p>
+  <% end %>
+</div>
